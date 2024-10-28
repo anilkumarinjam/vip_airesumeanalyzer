@@ -132,6 +132,9 @@ st.set_page_config(
 def run():
     import nltk
     nltk.download('stopwords')
+    print(nltk.data.path) 
+    with st.spinner('Downloading stopwords resource...'):
+        nltk.download('stopwords', force=True) 
     try:
         nltk.data.find('corpora/stopwords')
     except LookupError:
