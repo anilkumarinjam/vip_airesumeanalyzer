@@ -29,7 +29,10 @@ from PIL import Image
 from Courses import ds_course,web_course,android_course,ios_course,uiux_course,resume_videos,interview_videos
 import nltk
 nltk.download('stopwords')
+from .stopwords import STOPWORDS 
 
+# ... in your constants.py (or where you define STOPWORDS):
+STOPWORDS = set(STOPWORDS)  # Convert the list to a set 
 
 ###### Preprocessing functions ######
 
