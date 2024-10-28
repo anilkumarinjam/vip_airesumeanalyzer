@@ -130,7 +130,8 @@ st.set_page_config(
 
 
 def run():
-    
+    import nltk
+    nltk.download('stopwords')
     # (Logo, Heading, Sidebar etc)
     img = Image.open('./Logo/RESUM.png')
     st.image(img)
