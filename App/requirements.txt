@@ -47,7 +47,7 @@ matplotlib==3.9.2
 mdurl==0.1.2
 murmurhash==1.0.10
 narwhals==1.11.1
-nltk==3.9.1
+nltk==3.8.1
 numpy==2.0.2
 packaging==24.1
 pafy==0.5.5
