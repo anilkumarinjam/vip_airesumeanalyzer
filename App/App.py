@@ -156,7 +156,7 @@ def run():
     #     with st.spinner('Downloading stopwords resource...'):  # Show a message while downloading
     #         nltk.download('stopwords')
     # (Logo, Heading, Sidebar etc)
-    img = Image.open('./Logo/RESUM.png')
+    img = Image.open('./App/Logo/RESUM.png')
     st.image(img)
     st.sidebar.markdown("# Choose Something...")
     activities = ["User", "Feedback", "About", "Admin"]
