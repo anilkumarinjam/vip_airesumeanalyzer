@@ -36,6 +36,7 @@ RUN python -m nltk.downloader stopwords -d /app/vip_airesumeanalyzer/venvapp/nlt
 # Replace resume_parser.py (adjust the path if needed)
 COPY pyresparser/resume_parser.py venvapp/lib/python3.9/site-packages/pyresparser/resume_parser.py
 
+COPY pyresparser/utils.py venvapp/lib/python3.9/site-packages/pyresparser/utils.py
 
 # Set the command to run your application (adjust as needed)
 ENTRYPOINT ["streamlit", "run", "App/App.py", "--server.port=8501", "--server.address=0.0.0.0"]
