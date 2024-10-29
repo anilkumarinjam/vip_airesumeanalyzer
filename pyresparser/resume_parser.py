@@ -8,15 +8,27 @@ from . import utils
 
 
 class ResumeParser(object):
-
     def __init__(
         self,
         resume,
         skills_file=None,
         custom_regex=None
     ):
+        # Load standard Spacy model
         nlp = spacy.load('en_core_web_sm')
-        custom_nlp = spacy.load(os.path.dirname(os.path.abspath(__file__)))
+        
+        # Attempt to load custom NLP model; fallback to `en_core_web_sm` if unsuccessful
+        try:
+            custom_model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "custom_model")  # Adjust path as needed
+            if os.path.exists(custom_model_path):
+                custom_nlp = spacy.load(custom_model_path)
+            else:
+                print("Custom model path not found. Defaulting to en_core_web_sm.")
+                custom_nlp = nlp
+        except Exception as e:
+            print(f"Failed to load custom model. Error: {e}")
+            custom_nlp = nlp
+        
         self.__skills_file = skills_file
         self.__custom_regex = custom_regex
         self.__matcher = Matcher(nlp.vocab)
