@@ -28,11 +28,23 @@ from PIL import Image
 # pre stored data for prediction purposes
 from Courses import ds_course,web_course,android_course,ios_course,uiux_course,resume_videos,interview_videos
 import nltk
-nltk.download('stopwords')
-from .stopwords import STOPWORDS 
+import ssl
 
-# ... in your constants.py (or where you define STOPWORDS):
-STOPWORDS = set(STOPWORDS)  # Convert the list to a set 
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt')
+nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords')
+# from .stopwords import STOPWORDS 
+
+# # ... in your constants.py (or where you define STOPWORDS):
+# STOPWORDS = set(STOPWORDS)  # Convert the list to a set 
 
 ###### Preprocessing functions ######
 
@@ -133,16 +145,16 @@ st.set_page_config(
 
 
 def run():
-    import nltk
-    nltk.download('stopwords')
-    print(nltk.data.path) 
-    with st.spinner('Downloading stopwords resource...'):
-        nltk.download('stopwords', force=True) 
-    try:
-        nltk.data.find('corpora/stopwords')
-    except LookupError:
-        with st.spinner('Downloading stopwords resource...'):  # Show a message while downloading
-            nltk.download('stopwords')
+    # import nltk
+    # nltk.download('stopwords')
+    # print(nltk.data.path) 
+    # with st.spinner('Downloading stopwords resource...'):
+    #     nltk.download('stopwords', force=True) 
+    # try:
+    #     nltk.data.find('corpora/stopwords')
+    # except LookupError:
+    #     with st.spinner('Downloading stopwords resource...'):  # Show a message while downloading
+    #         nltk.download('stopwords')
     # (Logo, Heading, Sidebar etc)
     img = Image.open('./Logo/RESUM.png')
     st.image(img)
