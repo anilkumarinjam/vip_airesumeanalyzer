@@ -234,8 +234,8 @@ def run():
         ## file upload in pdf format
         pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
         if pdf_file is not None:
-            with st.spinner(st.markdown('''<h7 style='text-align: left; color: #83eba4;'> Hang On While We Cook Magic For You...</h7>''')):
-                time.sleep(4)
+            with st.spinner('Hang On While We Cook Magic For You...'):
+                time.sleep(5)
         
             ### saving the uploaded resume to folder
             save_image_path = './App/Uploaded_Resumes/'+pdf_file.name
@@ -591,7 +591,7 @@ def run():
                 ## Calling insertf_data to add dat into user feedback
                 insertf_data(feed_name,feed_email,feed_score,comments,Timestamp)    
                 ## Success Message 
-                st.success(st.markdown('''<h7 style='text-align: left; color: #05fa4a;'> Thanks! Your Feedback was recorded.</h7>''')) 
+                st.success('Thanks! Your Feedback was recorded.') 
                 ## On Successful Submit
                 st.balloons()    
 
