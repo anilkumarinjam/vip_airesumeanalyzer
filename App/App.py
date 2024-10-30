@@ -1,6 +1,4 @@
-# Developed by dnoobnerd [https://dnoobnerd.netlify.app]    Made with Streamlit
-
-
+###Made with Streamlit
 ###### Packages Used ######
 import streamlit as st # core package used in this project
 import pandas as pd
@@ -27,27 +25,13 @@ from streamlit_tags import st_tags
 from PIL import Image
 # pre stored data for prediction purposes
 from Courses import ds_course,web_course,android_course,ios_course,uiux_course,resume_videos,interview_videos
+
 import nltk
-import ssl
-
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
 nltk.download('punkt')
 nltk.download('stopwords')
-# import nltk
-# nltk.download('stopwords')
-# from .stopwords import STOPWORDS 
 
-# # ... in your constants.py (or where you define STOPWORDS):
-# STOPWORDS = set(STOPWORDS)  # Convert the list to a set 
 
 ###### Preprocessing functions ######
-
 
 # Generates a link allowing the data in a given panda dataframe to be downloaded in csv format 
 def get_csv_download_link(df,filename,text):
@@ -56,7 +40,6 @@ def get_csv_download_link(df,filename,text):
     b64 = base64.b64encode(csv.encode()).decode()      
     href = f'<a href="data:file/csv;base64,{b64}" download="{filename}">{text}</a>'
     return href
-
 
 # Reads Pdf file and check_extractable
 def pdf_reader(file):
@@ -104,10 +87,7 @@ def course_recommender(course_list):
 
 
 ###### Database Stuffs ######
-
-
 # sql connector
-# connection = pymysql.connect(host='mysql-204e0712-injamanilchowdary-airesumeanalyzer.k.aivencloud.com',user='avnadmin',password='AVNS_kVEUqVEQ7X2uQ5w613F',db='defaultdb',port=15344)
 connection = pymysql.connect(host='airesumeanalyser.c5eoqqou856z.us-east-1.rds.amazonaws.com',user='admin',password='Developer9492',db='vipdb',port=3306)
 cursor = connection.cursor()
 
@@ -134,34 +114,19 @@ def insertf_data(feed_name,feed_email,feed_score,comments,Timestamp):
 
 ###### Setting Page Configuration (favicon, Logo, Title) ######
 
-
 st.set_page_config(
    page_title="AI Resume Analyzer",
    page_icon='./App/assets/favicon.png',
 )
 
-
 ###### Main function run() ######
-
-
 def run():
-    # import nltk
-    # nltk.download('stopwords')
-    print(nltk.data.path) 
-    # with st.spinner('Downloading stopwords resource...'):
-    #     nltk.download('stopwords', force=True) 
-    # try:
-    #     nltk.data.find('corpora/stopwords')
-    # except LookupError:
-    #     with st.spinner('Downloading stopwords resource...'):  # Show a message while downloading
-    #         nltk.download('stopwords')
-    # (Logo, Heading, Sidebar etc)
     img = Image.open('./App/assets/aires.png')
     st.image(img)
     st.sidebar.markdown("# Choose Something...")
     activities = ["User", "Feedback", "About", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-    link = '<b>Built with 🤍 by <a href="#" style="text-decoration: none; color: #021659;">Team VIP</a></b>' 
+    link = '<b>Built with 🤍 by <a href="#" style="text-decoration: none; color: #ee1212;">Team VIP</a></b>' 
     st.sidebar.markdown(link, unsafe_allow_html=True)
     st.sidebar.markdown('''
         <!-- site visitors -->
@@ -172,7 +137,7 @@ def run():
             <a href="https://www.freecounterstat.com" title="website hit counter"><img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=53mljcm7hmceye5xel73kkujf7ymtz4g" border="0" title="website hit counter" alt="website hit counter"></a>
         </noscript>
     
-        <p>Visitors <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=53mljcm7hmceye5xel73kkujf7ymtz4g&FCS_coef=0.5&FCS_plus=100" border="0" title="website hit counter" alt="website hit counter"/></p>
+        <p>Visitors - <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=53mljcm7hmceye5xel73kkujf7ymtz4g&FCS_coef=0.5&FCS_plus=100" border="0" title="website hit counter" alt="website hit counter"/></p>
     
     ''', unsafe_allow_html=True)
 
@@ -262,24 +227,14 @@ def run():
                 city = statee = countryy = "Location not found"
         except Exception as e:
             st.error(f"Error in geocoding: {str(e)}")
-        # geolocator = Nominatim(user_agent="my-app-name")
-        # location = geolocator.reverse("52.509669, 13.376294", language='en')
-        # address = location.raw['address']
-        # cityy = address.get('city', '')
-        # statee = address.get('state', '')
-        # countryy = address.get('country', '')  
-        # city = cityy
-        # state = statee
-        # country = countryy
-
 
         # Upload Resume
-        st.markdown('''<h5 style='text-align: left; color: #a44ad1;'> Upload Your Resume, And Get Smart Recommendations</h5>''',unsafe_allow_html=True)
+        st.markdown('''<h5 style='text-align: left; color: #a44ad1;'> Upload Your Resume, And Get Smart Recommendations.</h5>''',unsafe_allow_html=True)
         
         ## file upload in pdf format
         pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
         if pdf_file is not None:
-            with st.spinner('Hang On While We Cook Magic For You...'):
+            with st.spinner('''<h7 style='text-align: left; color: #83eba4;'> Hang On While We Cook Magic For You...</h7>'''):
                 time.sleep(4)
         
             ### saving the uploaded resume to folder
@@ -636,7 +591,7 @@ def run():
                 ## Calling insertf_data to add dat into user feedback
                 insertf_data(feed_name,feed_email,feed_score,comments,Timestamp)    
                 ## Success Message 
-                st.success("Thanks! Your Feedback was recorded.") 
+                st.success('''<h7 style='text-align: left; color: #05fa4a;'> Thanks! Your Feedback was recorded.</h7>''') 
                 ## On Successful Submit
                 st.balloons()    
 
@@ -691,7 +646,7 @@ def run():
 
         <p align="justify">
             Built with 🤍 by 
-            <a href="#" style="text-decoration: none; color: grey;">VIP</a>
+            <a href="#" style="text-decoration: none; color: #ee1212;">VIP</a>
         </p>
 
         ''',unsafe_allow_html=True)  
