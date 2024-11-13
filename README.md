@@ -14,7 +14,7 @@ Follow these steps to set up the project:
 ### 1. Download the Code
 Clone the repository manually or via Git:
 
-`git clone https://github.com/deepakpadhi986/AI-Resume-Analyzer.git`
+`git clone https://github.com/anilkumarinjam/vip_airesumeanalyzer`
 ### 2. Create and Activate a Virtual Environment (Recommended)
 `cd AI-Resume-Analyzer`
 `python -m venv venvapp`
