@@ -16,5 +16,16 @@ Clone the repository manually or via Git:
 
 `git clone https://github.com/deepakpadhi986/AI-Resume-Analyzer.git`
 ### 2. Create and Activate a Virtual Environment (Recommended)
-`cd AI-Resume-Analyzer
-python -m venv venvapp`
+`cd AI-Resume-Analyzer`
+`python -m venv venvapp`
+#### Activate the virtual environment:
+`source venvapp/bin/activate`
+### 3. Install required Packages
+`cd ../..`
+`cd App`
+`pip install -r requirements.txt`
+### 4. Download spaCy Language Model
+`python -m spacy download en_core_web_sm`
+### 5. Replaces files in pyreparser (resumeparser,utils)
+###7. Run the application
+`streamlit run App.py`
