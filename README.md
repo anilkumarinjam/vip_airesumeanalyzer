@@ -16,3 +16,5 @@ Clone the repository manually or via Git:
 
 `git clone https://github.com/deepakpadhi986/AI-Resume-Analyzer.git`
 ### 2. Create and Activate a Virtual Environment (Recommended)
+`cd AI-Resume-Analyzer
+python -m venv venvapp`
