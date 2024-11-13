@@ -121,12 +121,12 @@ st.set_page_config(
 
 ###### Main function run() ######
 def run():
-    img = Image.open('./App/assets/aires.png')
+    img = Image.open('./App/assets/ai.png')
     st.image(img)
     st.sidebar.markdown("# Choose Something...")
     activities = ["User", "Feedback", "About", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-    link = '<b>Built with 🤍 by <a href="#" style="text-decoration: none; color: #ee1212;">Team VIP</a></b>' 
+    link = '<b>Built with 🤍 by <a href="#" style="text-decoration: none;">Team VIP</a></b>' 
     st.sidebar.markdown(link, unsafe_allow_html=True)
     st.sidebar.markdown('''
         <!-- site visitors -->
@@ -646,7 +646,7 @@ def run():
 
         <p align="justify">
             Built with 🤍 by 
-            <a href="#" style="text-decoration: none; color: #ee1212;">VIP</a>
+            <a href="#">VIP</a>
         </p>
 
         ''',unsafe_allow_html=True)  
@@ -654,7 +654,7 @@ def run():
 
     ###### CODE FOR ADMIN SIDE (ADMIN) ######
     else:
-        st.success('Welcome to Admin Side')
+        st.success('Welcome to Admin Site')
 
         #  Admin Login
         ad_user = st.text_input("Username")
@@ -663,7 +663,7 @@ def run():
         if st.button('Login'):
             
             ## Credentials 
-            if ad_user == 'admin' and ad_password == 'admin@airesumeanalyzer':
+            if ad_user == 'admin' and ad_password == 'nimda':
                 
                 ### Fetch miscellaneous data from user_data(table) and convert it into dataframe
                 cursor.execute('''SELECT ID, ip_add, resume_score, convert(Predicted_Field using utf8), convert(User_level using utf8), city, state, country from user_data''')
