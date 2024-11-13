@@ -20,7 +20,6 @@ from nltk.corpus import stopwords
 def extract_text_from_pdf(pdf_path):
     '''
     Helper function to extract the plain text from .pdf files
-
     :param pdf_path: path to PDF file to be extracted (remote or local)
     :return: iterator of string of extracted text
     '''
