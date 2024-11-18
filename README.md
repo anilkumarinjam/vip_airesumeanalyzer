@@ -16,7 +16,7 @@ Clone the repository manually or via Git:
 
 `git clone https://github.com/anilkumarinjam/vip_airesumeanalyzer`
 ### 2. Create and Activate a Virtual Environment (Recommended)
-`cd AI-Resume-Analyzer`
+`cd vip_airesumeanalyzer`
 `python -m venv venvapp`
 #### Activate the virtual environment:
 `source venvapp/bin/activate`
